@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; color: #222; max-width: 640px; margin: 0 auto; padding: 16px; }
+  .banner { padding: 16px 20px; border-radius: 8px; font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 16px; }
+  .banner.GO { background: #1a7f37; }
+  .banner.GO_WITH_RAIN_GEAR { background: #b08900; }
+  .banner.NO_GO { background: #b3261e; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; color: #555; margin-top: 24px; margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e5e5e5; }
+  .closed { color: #b3261e; font-weight: bold; }
+  .best { font-weight: bold; }
+  ul { margin: 4px 0; padding-left: 20px; }
+  .muted { color: #666; font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="banner {{ verdict.overall.value }}">{{ narrative.subject_line }}</div>
+
+  <p>{{ narrative.summary_paragraph }}</p>
+
+  {% if narrative.gear_tips %}
+  <p><strong>Gear:</strong> {{ narrative.gear_tips }}</p>
+  {% endif %}
+
+  {% if mode == "morning" %}
+  <h2>Changes since last night</h2>
+  <p>{{ narrative.changes_since_last_night }}</p>
+  {% endif %}
+
+  <h2>Weather</h2>
+  <p>{{ narrative.weather_notes }}</p>
+  <table>
+    <tr><th></th><th>Window</th><th>Temp (F)</th><th>Chance of rain</th><th>Conditions</th></tr>
+    <tr>
+      <td>Morning</td>
+      <td>{{ (morning_forecast.start | localtime(tz)).strftime("%I:%M %p") }}-{{ (morning_forecast.end | localtime(tz)).strftime("%I:%M %p") }}</td>
+      <td>{{ "%.0f"|format(morning_forecast.temp_min_f) }}-{{ "%.0f"|format(morning_forecast.temp_max_f) }}</td>
+      <td>{{ "%.0f"|format(morning_forecast.pop_max * 100) }}%</td>
+      <td>{{ morning_forecast.conditions|join(", ") }}</td>
+    </tr>
+    <tr>
+      <td>Evening</td>
+      <td>{{ (evening_forecast.start | localtime(tz)).strftime("%I:%M %p") }}-{{ (evening_forecast.end | localtime(tz)).strftime("%I:%M %p") }}</td>
+      <td>{{ "%.0f"|format(evening_forecast.temp_min_f) }}-{{ "%.0f"|format(evening_forecast.temp_max_f) }}</td>
+      <td>{{ "%.0f"|format(evening_forecast.pop_max * 100) }}%</td>
+      <td>{{ evening_forecast.conditions|join(", ") }}</td>
+    </tr>
+  </table>
+
+  <h2>Traffic &amp; routes</h2>
+  <p>{{ narrative.traffic_notes }}</p>
+  <p>{{ narrative.route_recommendation_reasoning }}</p>
+  <table>
+    <tr><th>Direction</th><th>Route</th><th>Duration</th><th>Congestion</th><th>Warnings</th></tr>
+    {% for r in routes %}
+    <tr class="{{ 'closed' if r.is_closed else '' }}{{ ' best' if r.name == (best_route_to_work if r.direction == 'to_work' else best_route_to_home) else '' }}">
+      <td>{{ "To work" if r.direction == "to_work" else "To home" }}</td>
+      <td>{{ r.name }}{% if r.is_closed %} (closed){% endif %}</td>
+      <td>{{ "%.0f"|format(r.duration_min) }} min</td>
+      <td>{{ r.congestion_level }} ({{ "%.2f"|format(r.congestion_ratio) }}x)</td>
+      <td>{{ r.warnings|join("; ") }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% if verdict.reasons %}
+  <h2>Why</h2>
+  <ul>
+    {% for reason in verdict.reasons %}
+    <li>{{ reason }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <p class="muted">Generated {{ run_at.strftime("%Y-%m-%d %I:%M %p %Z") }} &middot; mode: {{ mode }}</p>
+</body>
+</html>

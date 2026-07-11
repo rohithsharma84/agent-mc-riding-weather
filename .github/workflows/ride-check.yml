@@ -1,0 +1,81 @@
+name: Ride check
+
+on:
+  schedule:
+    # UTC crons covering both possible offsets of 22:00 and 07:00 America/New_York.
+    # main.py's --mode auto gate decides, in local time, whether a given firing
+    # is actually a scheduled slot; off-target firings exit immediately.
+    - cron: "0 2 * * *" # ~22:00 EDT (night_before candidate)
+    - cron: "0 3 * * *" # ~22:00 EST (night_before candidate)
+    - cron: "0 11 * * *" # ~07:00 EDT (morning candidate)
+    - cron: "0 12 * * *" # ~07:00 EST (morning candidate)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options: [auto, night_before, morning]
+        default: auto
+        required: true
+      dry_run:
+        description: "Dry run (print email instead of sending)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ride-check
+  cancel-in-progress: false
+
+jobs:
+  ride-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Write config.yaml from secret
+        env:
+          RIDE_CONFIG_YAML: ${{ secrets.RIDE_CONFIG_YAML }}
+        run: printf '%s' "$RIDE_CONFIG_YAML" > config.yaml
+
+      - name: Run ride-check
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL_NAME: ${{ vars.OPENAI_MODEL_NAME }}
+          OPENWEATHERAPP_API_KEY: ${{ secrets.OPENWEATHERAPP_API_KEY }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          MODE="${{ inputs.mode || 'auto' }}"
+          DRY_RUN_FLAG=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+          python -m ride_agent --mode "$MODE" $DRY_RUN_FLAG
+
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ ! -f state/last_run.json ]; then
+            echo "No state file written this run (dry-run or send failure); nothing to commit"
+            exit 0
+          fi
+          git add state/last_run.json
+          if ! git diff --cached --quiet; then
+            git commit -m "state: update last_run.json [skip ci]"
+            git push
+          else
+            echo "No state changes to commit"
+          fi

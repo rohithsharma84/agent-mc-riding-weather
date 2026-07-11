@@ -1,0 +1,57 @@
+# Ride-agent configuration template. Copy this to config.yaml (gitignored) and fill in your
+# real details. config.yaml itself is never committed, since it holds your home/work address
+# and personal schedule.
+
+timezone: America/New_York
+
+office_days: [MON, TUE, WED]
+
+commute:
+  morning:
+    depart: "08:30"
+    window_minutes: 60 # commute departure window length, in minutes
+  evening:
+    depart: "17:30"
+    window_minutes: 60
+
+# TODO: fill in your real home/work addresses (or lat/lon).
+locations:
+  home:
+    label: Home
+    address: "REPLACE_ME, e.g. 123 Main St, Anytown, NJ"
+    lat: 0.0
+    lon: 0.0
+  work:
+    label: Office
+    address: "REPLACE_ME, e.g. 456 Market St, Othertown, NJ"
+    lat: 0.0
+    lon: 0.0
+
+# TODO: fill in waypoints (address or lat/lon) that pin each named route.
+# An empty waypoints list means "let Google pick the default route" — fine for one
+# entry per direction, but the others need at least one waypoint to differ from it.
+routes:
+  to_work:
+    - name: "Route A (direct)"
+      waypoints: []
+    - name: "Route B (backroads)"
+      waypoints: []
+  to_home:
+    - name: "Route A (direct)"
+      waypoints: []
+    - name: "Route B (parkway)"
+      waypoints: []
+    - name: "Route C (scenic)"
+      waypoints: []
+
+thresholds:
+  temp_min_f: 65
+  temp_max_f: 95
+  pop_rain_gear: 0.20 # probability of precipitation >= this -> bring rain gear
+  pop_no_go: 0.60 # probability of precipitation >= this -> treat as rain, no-go
+  congestion_moderate: 1.15 # duration / static_duration ratio
+  congestion_heavy: 1.40
+
+email:
+  to: "you@example.com"
+  from: "Ride Agent <onboarding@resend.dev>"
