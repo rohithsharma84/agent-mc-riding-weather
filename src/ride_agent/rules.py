@@ -23,7 +23,7 @@ def _classify_leg(leg_name: str, forecast: WindowForecast, thresholds: Threshold
     if forecast.temp_min_f < thresholds.temp_min_f or forecast.temp_max_f > thresholds.temp_max_f:
         reasons.append(
             f"{label} window: temperature "
-            f"{forecast.temp_min_f:.0f}-{forecast.temp_max_f:.0f}F outside "
+            f"{forecast.temp_min_f:.1f}-{forecast.temp_max_f:.1f}F outside "
             f"{thresholds.temp_min_f:.0f}-{thresholds.temp_max_f:.0f}F range"
         )
         return LegVerdict(leg=leg_name, verdict=Verdict.NO_GO, reasons=reasons)
