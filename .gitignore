@@ -161,6 +161,9 @@ venv.bak/
 preview.html
 config.yaml
 
+# Claude Code personal/local settings (hooks, overrides)
+.claude/settings.local.json
+
 # Spyder project settings
 .spyderproject
 .spyproject

@@ -37,6 +37,12 @@ reported closed, which forces a NO-GO for that leg. All of this is unit-tested i
 
 ## Setup
 
+New here? This repo is meant to be **forked and made your own** — clone it, add your own API keys
+and a private `config.yaml` with your commute, and either run it locally or let the included GitHub
+Actions workflow run it on a schedule. Nothing in the committed repo is specific to any one person:
+your addresses, office days, and schedule all live in the gitignored `config.yaml` (or, for the
+hosted workflow, in a repo secret). The four steps below get you from clone to a working email.
+
 ### 1. Install
 
 ```bash
@@ -45,14 +51,16 @@ pip install -e ".[dev]"
 
 ### 2. Credentials
 
-Copy `.env.example` to `.env` and fill in:
+This project calls four free-to-start APIs. Copy `.env.example` to `.env` and fill in a key for
+each — all four have a no-cost tier that comfortably covers this agent's usage (~30 calls/week):
 
 | Variable | Where to get it |
 |---|---|
-| `OPENAI_API_KEY`, `OPENAI_MODEL_NAME` | You already have these. |
-| `OPENWEATHERAPP_API_KEY` | You already have this (free tier — uses the 5-day/3-hour forecast endpoint). |
-| `GOOGLE_MAPS_API_KEY` | **New.** Google Cloud Console → create/select a project → enable the **Routes API** → Credentials → Create API key → restrict the key to the Routes API. Requires a billing account on the project, but usage here (~30 calls/week) is well within the free monthly credit. |
-| `RESEND_API_KEY` | **New.** Sign up at [resend.com](https://resend.com) → API Keys → Create. The default `from` address in `config.yaml` (`onboarding@resend.dev`) works out of the box and delivers to your own account email — no domain verification needed to get started. |
+| `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com/api-keys) → sign in → **API keys** → Create new secret key. Requires an OpenAI account with a small amount of billing credit; a run costs a fraction of a cent. |
+| `OPENAI_MODEL_NAME` | Not a key — the model id to use, e.g. `gpt-4.1-mini`. Any current OpenAI chat model that supports JSON-schema structured outputs works; the mini tier is plenty for the short narrative. |
+| `OPENWEATHERAPP_API_KEY` | [openweathermap.org](https://openweathermap.org/api) → sign up (free) → **API keys** tab → copy the default key. Uses the free 5-day/3-hour forecast endpoint. Note: a brand-new key can take up to a couple of hours to activate. |
+| `GOOGLE_MAPS_API_KEY` | Google Cloud Console → create/select a project → enable the **Routes API** → Credentials → Create API key → restrict the key to the Routes API. Requires a billing account on the project, but usage here is well within the free monthly credit. |
+| `RESEND_API_KEY` | Sign up at [resend.com](https://resend.com) → API Keys → Create. The default `from` address in `config.yaml` (`onboarding@resend.dev`) works out of the box and delivers to your own account email — no domain verification needed to get started. |
 
 ### 3. Configure your routes
 
