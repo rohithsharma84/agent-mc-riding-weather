@@ -2,20 +2,21 @@ name: Ride check
 
 on:
   schedule:
-    # UTC crons covering both possible offsets of 22:00 and 07:00 America/New_York.
-    # main.py's --mode auto gate decides, in local time, whether a given firing
-    # is actually a scheduled slot; off-target firings exit immediately.
-    - cron: "0 2 * * *" # ~22:00 EDT (night_before candidate)
-    - cron: "0 3 * * *" # ~22:00 EST (night_before candidate)
-    - cron: "0 11 * * *" # ~07:00 EDT (morning candidate)
-    - cron: "0 12 * * *" # ~07:00 EST (morning candidate)
+    # One fixed UTC cron per slot, firing *every* day. We target 9 pm / 6 am ET
+    # but don't care that DST shifts the local time by an hour (9->8 pm, 6->5 am
+    # in winter), so no per-offset gating is needed. Which days actually run is
+    # decided in code against office_days in the private config.yaml (kept out of
+    # this committed file), so the agent no-ops on non-office days. The 15-minute
+    # offset dodges the top-of-hour load spike on GitHub's scheduler.
+    - cron: "15 1 * * *" # 9:15 pm EDT / 8:15 pm EST -> night_before (targets tomorrow)
+    - cron: "15 10 * * *" # 6:15 am EDT / 5:15 am EST -> morning (targets today)
   workflow_dispatch:
     inputs:
       mode:
         description: "Run mode"
         type: choice
-        options: [auto, night_before, morning]
-        default: auto
+        options: [night_before, morning]
+        default: night_before
         required: true
       dry_run:
         description: "Dry run (print email instead of sending)"
@@ -57,12 +58,29 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: |
-          MODE="${{ inputs.mode || 'auto' }}"
+          # Manual runs pass the mode as an input; scheduled runs resolve it from
+          # the cron expression that fired (github.event.schedule echoes the exact
+          # string from the schedule list above).
+          # Manual runs pass the mode as an input (and --force past the office-day
+          # filter so a test run always executes); scheduled runs resolve the mode
+          # from the cron expression that fired and respect office_days.
+          FORCE_FLAG=""
+          if [ -n "${{ inputs.mode }}" ]; then
+            MODE="${{ inputs.mode }}"
+            FORCE_FLAG="--force"
+          elif [ "${{ github.event.schedule }}" = "15 1 * * *" ]; then
+            MODE="night_before"
+          elif [ "${{ github.event.schedule }}" = "15 10 * * *" ]; then
+            MODE="morning"
+          else
+            echo "Could not resolve run mode from trigger '${{ github.event.schedule }}'" >&2
+            exit 1
+          fi
           DRY_RUN_FLAG=""
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             DRY_RUN_FLAG="--dry-run"
           fi
-          python -m ride_agent --mode "$MODE" $DRY_RUN_FLAG
+          python -m ride_agent --mode "$MODE" $FORCE_FLAG $DRY_RUN_FLAG
 
       - name: Commit updated state
         run: |

@@ -4,6 +4,9 @@
 
 timezone: America/New_York
 
+# Which days you go in. The workflow fires every night/morning; the agent only
+# actually runs for these days (night-before targets tomorrow, morning targets
+# today). Kept here in the private config so your schedule isn't in the repo.
 office_days: [MON, TUE, WED]
 
 commute:

@@ -1,62 +1,27 @@
-"""Local-time scheduling gate and commute-window computation.
+"""Office-day check and commute-window computation.
 
-GitHub Actions cron fires in UTC and can't express "22:00 America/New_York"
-across a DST boundary, and it fires with several minutes of jitter. Instead of
-trying to get the cron expression exactly right, the workflow fires at every
-plausible UTC time and this module decides, in local Eastern time, whether
-the current run is actually a scheduled slot.
+Which *slot* runs (night_before vs morning) is decided by the GitHub Actions
+cron schedule and passed explicitly to `--mode`. Which *days* count as office
+days stays private in config.yaml, so the crons fire every day and this module
+filters to the configured office days — a plain weekday-membership test, with no
+timezone tolerance math (the mode already tells us which slot fired).
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta
 from zoneinfo import ZoneInfo
 
 DAY_CODES = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-
-NIGHT_HOUR_START = 22
-NIGHT_HOUR_TOLERANCE_MIN = 90  # accept 22:00-23:29 local
-MORNING_HOUR_START = 7
-MORNING_HOUR_TOLERANCE_MIN = 75  # accept 07:00-08:14 local
-
-
-@dataclass(frozen=True)
-class RunPlan:
-    mode: str  # "night_before" | "morning"
-    target_office_day: date
 
 
 def get_zone(tz_name: str) -> ZoneInfo:
     return ZoneInfo(tz_name)
 
 
-def _within_tolerance(local_dt: datetime, start_hour: int, tolerance_min: int) -> bool:
-    slot_start = local_dt.replace(hour=start_hour, minute=0, second=0, microsecond=0)
-    delta = (local_dt - slot_start).total_seconds() / 60
-    return 0 <= delta <= tolerance_min
-
-
-def resolve_run(now_local: datetime, office_days: list[str]) -> RunPlan | None:
-    """Decide whether `now_local` (aware, in the target timezone) is a scheduled slot.
-
-    - night_before: local hour is ~22:00 and *tomorrow* is an office day.
-    - morning: local hour is ~07:00 and *today* is an office day.
-    Returns None if neither condition holds (the caller should exit quietly).
-    """
-    today_code = DAY_CODES[now_local.weekday()]
-    tomorrow = now_local.date() + timedelta(days=1)
-    tomorrow_code = DAY_CODES[tomorrow.weekday()]
-
-    if _within_tolerance(now_local, NIGHT_HOUR_START, NIGHT_HOUR_TOLERANCE_MIN):
-        if tomorrow_code in office_days:
-            return RunPlan(mode="night_before", target_office_day=tomorrow)
-
-    if _within_tolerance(now_local, MORNING_HOUR_START, MORNING_HOUR_TOLERANCE_MIN):
-        if today_code in office_days:
-            return RunPlan(mode="morning", target_office_day=now_local.date())
-
-    return None
+def is_office_day(day: date, office_days: list[str]) -> bool:
+    """True if `day`'s weekday is one of the configured office-day codes."""
+    return DAY_CODES[day.weekday()] in office_days
 
 
 def commute_windows(

@@ -3,14 +3,19 @@
 AI agent that checks weather, traffic, and road closures to decide whether it's a good day to
 ride a motorcycle to work — and emails the recommendation.
 
-- **~10:00 pm local time** the night before each configured office day: a recommendation for
-  tomorrow.
-- **~7:00 am local time** the office-day morning: an always-sent update noting what, if anything,
+- **~9:00 pm ET** the night before each office day: a recommendation for tomorrow.
+- **~6:00 am ET** the office-day morning: an always-sent update noting what, if anything,
   changed overnight.
 
+(In winter each lands an hour earlier — ~8 pm / ~5 am — since the schedule is a fixed UTC time
+and doesn't chase DST. An hour of drift is harmless at these times, which is why there's no
+timezone gating.)
+
 Office days, commute departure times, home/work locations, routes, and temperature/rain
-thresholds are all set in your own `config.yaml` (see [Setup](#setup) — this file is
-gitignored and never committed, since it holds your real address and schedule).
+thresholds are all set in your own `config.yaml` (see [Setup](#setup) — this file is gitignored
+and never committed, since it holds your real address and schedule). The workflow fires every
+night and morning; the agent no-ops on any day not listed in `office_days`, so your actual
+schedule never appears in the repo.
 
 The verdict (GO / GO-WITH-RAIN-GEAR / NO-GO) is decided by deterministic rules in
 [`src/ride_agent/rules.py`](src/ride_agent/rules.py) — no rain, temperature within your configured
@@ -110,10 +115,12 @@ schedule and needs no server of your own. **Steps to take in your GitHub repo:**
    → mode `night_before`, dry_run `true`. Check the run logs and confirm no errors (it won't send
    an email or touch state in dry-run mode). Repeat with `dry_run` unchecked to confirm you
    receive a real email.
-6. **Let the schedule take over.** The workflow fires four times daily in UTC (covering both EST
-   and EDT offsets for 10 pm and 7 am ET); `--mode auto` silently no-ops on the three firings that
-   aren't your actual local time or aren't an office day. GitHub's scheduler can jitter by up to
-   ~15–30 minutes, so don't be surprised if an email lands a bit after the target time.
+6. **Let the schedule take over.** The workflow fires two fixed UTC crons every day — `15 1 * * *`
+   (night_before, ~9 pm ET) and `15 10 * * *` (morning, ~6 am ET) — passing the mode explicitly.
+   The agent then no-ops on any day not in your `office_days`, so you'll see quiet ~30s runs in the
+   Actions history on non-office days; that's expected (it's how the day list stays private).
+   GitHub's scheduler can jitter by ~15–30 minutes, so don't be surprised if an email lands a bit
+   after the target time.
 
 ### Notes / limitations
 

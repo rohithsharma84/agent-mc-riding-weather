@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 from ride_agent import emailer, llm, rules, state, weather
 from ride_agent.config import Config, load_config
 from ride_agent.models import RideVerdict, RouteAssessment, RunResult, WindowForecast
-from ride_agent.timeutil import commute_windows, get_zone, resolve_run
+from ride_agent.timeutil import commute_windows, get_zone, is_office_day
 from ride_agent.traffic import assess_route
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -26,18 +26,23 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Motorcycle commute ride-check agent")
     parser.add_argument(
         "--mode",
-        choices=["auto", "night_before", "morning"],
-        default="auto",
-        help="auto (default) checks the local time against the schedule; "
-        "night_before/morning force a run regardless of time",
+        choices=["night_before", "morning"],
+        required=True,
+        help="night_before targets tomorrow; morning targets today. "
+        "The GitHub Actions schedule supplies this per slot.",
     )
     parser.add_argument("--dry-run", action="store_true", help="print the email instead of sending it")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="run even when the target day isn't a configured office day (for manual/test runs)",
+    )
     parser.add_argument("--date", help="target office day (YYYY-MM-DD), overrides the inferred date")
     parser.add_argument("--config", default="config.yaml", help="path to config.yaml")
     return parser.parse_args(argv)
 
 
-def _target_day_for_explicit_mode(mode: str, date_arg: str | None, now_local: datetime) -> date:
+def _target_day_for_mode(mode: str, date_arg: str | None, now_local: datetime) -> date:
     if date_arg:
         return date.fromisoformat(date_arg)
     if mode == "night_before":
@@ -83,15 +88,12 @@ def run(argv: list[str] | None = None) -> int:
     tz = get_zone(cfg.timezone)
     now_local = datetime.now(tz)
 
-    if args.mode == "auto":
-        plan = resolve_run(now_local, cfg.office_days)
-        if plan is None:
-            logger.info("Not a scheduled slot at %s; exiting quietly", now_local.isoformat())
-            return 0
-        mode, target_day = plan.mode, plan.target_office_day
-    else:
-        mode = args.mode
-        target_day = _target_day_for_explicit_mode(mode, args.date, now_local)
+    mode = args.mode
+    target_day = _target_day_for_mode(mode, args.date, now_local)
+
+    if not args.force and not is_office_day(target_day, cfg.office_days):
+        logger.info("%s is not a configured office day; exiting quietly", target_day.isoformat())
+        return 0
 
     logger.info("Running mode=%s target_office_day=%s", mode, target_day.isoformat())
 

@@ -49,7 +49,7 @@ class EmailConfig(BaseModel):
 
 class Config(BaseModel):
     timezone: str
-    office_days: list[str]
+    office_days: list[str]  # e.g. ["MON", "TUE", "WED"] — which days you ride in
     commute: CommuteConfig
     locations: dict[str, LocationConfig]
     routes: dict[str, list[RouteConfig]]
