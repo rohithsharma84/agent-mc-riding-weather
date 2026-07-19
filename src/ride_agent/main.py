@@ -12,7 +12,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from ride_agent import emailer, llm, rules, state, weather
+from ride_agent import emailer, llm, rules, state, tracing, weather
 from ride_agent.config import Config, load_config
 from ride_agent.models import RideVerdict, RouteAssessment, RunResult, WindowForecast
 from ride_agent.timeutil import commute_windows, get_zone, is_office_day
@@ -84,6 +84,7 @@ def _fetch_routes(cfg: Config, morning_start, evening_start) -> list[RouteAssess
 def run(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
     load_dotenv()
+    tracing.configure_tracing()
     cfg = load_config(args.config)
     tz = get_zone(cfg.timezone)
     now_local = datetime.now(tz)

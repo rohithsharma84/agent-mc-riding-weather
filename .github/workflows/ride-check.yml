@@ -57,6 +57,10 @@ jobs:
           OPENWEATHERAPP_API_KEY: ${{ secrets.OPENWEATHERAPP_API_KEY }}
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          # Optional: LangSmith tracing. Tracing turns on only when the secret is
+          # set, so it's a safe no-op until you add LANGSMITH_API_KEY to the repo.
+          LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+          LANGSMITH_PROJECT: ${{ vars.LANGSMITH_PROJECT }}
         run: |
           # Manual runs pass the mode as an input; scheduled runs resolve it from
           # the cron expression that fired (github.event.schedule echoes the exact

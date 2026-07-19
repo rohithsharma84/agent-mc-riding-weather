@@ -12,6 +12,8 @@ from __future__ import annotations
 import json
 import logging
 
+from langsmith import traceable
+from langsmith.wrappers import wrap_openai
 from openai import OpenAI
 
 from ride_agent.models import Change, Narrative, RideVerdict, RouteAssessment, WindowForecast
@@ -68,6 +70,7 @@ def _build_payload(
     }
 
 
+@traceable(run_type="chain", name="synthesize_narrative")
 def synthesize(
     mode: str,
     verdict: RideVerdict,
@@ -92,7 +95,9 @@ def synthesize(
     )
 
     try:
-        client = OpenAI(api_key=api_key)
+        # wrap_openai adds a LangSmith span for the chat completion call. When
+        # tracing is disabled (no LANGSMITH_API_KEY) the wrapper is a no-op.
+        client = wrap_openai(OpenAI(api_key=api_key))
         completion = client.chat.completions.create(
             model=model,
             messages=[

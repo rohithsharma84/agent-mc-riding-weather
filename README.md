@@ -62,6 +62,8 @@ each — all four have a no-cost tier that comfortably covers this agent's usage
 | `GOOGLE_MAPS_API_KEY` | Google Cloud Console → create/select a project → enable the **Routes API** → Credentials → Create API key → restrict the key to the Routes API. Requires a billing account on the project, but usage here is well within the free monthly credit. |
 | `RESEND_API_KEY` | Sign up at [resend.com](https://resend.com) → API Keys → Create. The default `from` address in `config.yaml` (`onboarding@resend.dev`) works out of the box and delivers to your own account email — no domain verification needed to get started. |
 
+**Optional — LangSmith tracing.** Set `LANGSMITH_API_KEY` (from [smith.langchain.com](https://smith.langchain.com) → Settings → API Keys) to trace the LLM narrative call in LangSmith; `LANGSMITH_PROJECT` names the project runs are grouped under (defaults to `ride-agent`). Leave `LANGSMITH_API_KEY` blank to disable tracing entirely — the agent runs the same either way.
+
 ### 3. Configure your routes
 
 Copy the template and fill in your real details:
