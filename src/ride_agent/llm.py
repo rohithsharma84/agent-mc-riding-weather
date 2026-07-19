@@ -70,7 +70,13 @@ def _build_payload(
     }
 
 
-@traceable(run_type="chain", name="synthesize_narrative")
+def _redact_inputs(inputs: dict) -> dict:
+    # Never log the OpenAI API key (or any secret) to LangSmith. @traceable
+    # otherwise serializes every argument as the run's inputs.
+    return {k: v for k, v in inputs.items() if k != "api_key"}
+
+
+@traceable(run_type="chain", name="synthesize_narrative", process_inputs=_redact_inputs)
 def synthesize(
     mode: str,
     verdict: RideVerdict,
