@@ -46,6 +46,16 @@ def _target_day_for_mode(mode: str, date_arg: str | None, now_local: datetime) -
     if date_arg:
         return date.fromisoformat(date_arg)
     if mode == "night_before":
+        # The night_before slot is scheduled for the evening and targets the next
+        # day. GitHub Actions crons are UTC-only and best-effort — a run can be
+        # delayed by hours, which can push the ~9pm run past local midnight. When
+        # that happens now_local has already rolled over to the target day, so
+        # adding another day would overshoot by one (the symptom: a "Saturday
+        # night" email that actually targets Monday). Treat a run in the AM half
+        # of the day as a delayed evening run for *today*; a genuine evening run
+        # still targets tomorrow.
+        if now_local.hour < 12:
+            return now_local.date()
         return (now_local + timedelta(days=1)).date()
     return now_local.date()
 

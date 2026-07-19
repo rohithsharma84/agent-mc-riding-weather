@@ -2,13 +2,15 @@ name: Ride check
 
 on:
   schedule:
-    # One fixed UTC cron per slot, firing *every* day. We target 9 pm / 6 am ET
-    # but don't care that DST shifts the local time by an hour (9->8 pm, 6->5 am
+    # One fixed UTC cron per slot, firing *every* day. We target 8 pm / 6 am ET
+    # but don't care that DST shifts the local time by an hour (8->7 pm, 6->5 am
     # in winter), so no per-offset gating is needed. Which days actually run is
     # decided in code against office_days in the private config.yaml (kept out of
     # this committed file), so the agent no-ops on non-office days. The 15-minute
-    # offset dodges the top-of-hour load spike on GitHub's scheduler.
-    - cron: "15 1 * * *" # 9:15 pm EDT / 8:15 pm EST -> night_before (targets tomorrow)
+    # offset dodges the top-of-hour load spike on GitHub's scheduler. The evening
+    # slot sits well before local midnight so a delayed hosted run stays on the
+    # same day; _target_day_for_mode also corrects a run that slips past midnight.
+    - cron: "15 0 * * *" # 8:15 pm EDT / 7:15 pm EST -> night_before (targets tomorrow)
     - cron: "15 10 * * *" # 6:15 am EDT / 5:15 am EST -> morning (targets today)
   workflow_dispatch:
     inputs:
@@ -72,7 +74,7 @@ jobs:
           if [ -n "${{ inputs.mode }}" ]; then
             MODE="${{ inputs.mode }}"
             FORCE_FLAG="--force"
-          elif [ "${{ github.event.schedule }}" = "15 1 * * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "15 0 * * *" ]; then
             MODE="night_before"
           elif [ "${{ github.event.schedule }}" = "15 10 * * *" ]; then
             MODE="morning"
