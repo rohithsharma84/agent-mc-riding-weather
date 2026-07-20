@@ -1,36 +1,36 @@
 {
   "mode": "night_before",
-  "run_at": "2026-07-19T00:35:03.072715-04:00",
+  "run_at": "2026-07-20T00:06:18.049073-04:00",
   "target_office_day": "2026-07-20",
   "verdict": {
-    "overall": "NO_GO",
+    "overall": "GO",
     "legs": [
       {
         "leg": "morning",
-        "verdict": "NO_GO",
+        "verdict": "GO",
         "reasons": [
-          "Morning window: temperature 61.8-61.8F outside 65-95F range"
+          "Morning window: clear, 66-66F, pop=0.00"
         ]
       },
       {
         "leg": "evening",
         "verdict": "GO",
         "reasons": [
-          "Evening window: clear, 80-80F, pop=0.00"
+          "Evening window: clear, 78-78F, pop=0.00"
         ]
       }
     ],
     "reasons": [
-      "Morning window: temperature 61.8-61.8F outside 65-95F range",
-      "Evening window: clear, 80-80F, pop=0.00"
+      "Morning window: clear, 66-66F, pop=0.00",
+      "Evening window: clear, 78-78F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-07-20T12:30:00Z",
     "end": "2026-07-20T13:30:00Z",
-    "temp_min_f": 61.83,
-    "temp_max_f": 61.83,
+    "temp_min_f": 66.38,
+    "temp_max_f": 66.38,
     "pop_max": 0.0,
     "conditions": [
       "Clear"
@@ -41,8 +41,8 @@
     "label": "evening",
     "start": "2026-07-20T21:30:00Z",
     "end": "2026-07-20T22:30:00Z",
-    "temp_min_f": 79.56,
-    "temp_max_f": 79.56,
+    "temp_min_f": 78.3,
+    "temp_max_f": 78.3,
     "pop_max": 0.0,
     "conditions": [
       "Clear"
@@ -112,11 +112,11 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Evening Forecast: No Ride Tomorrow Morning",
-    "summary_paragraph": "The morning forecast shows a temperature of 61.8°F which is below the comfort range for riding, while the evening will be clear and warm at 80°F. Thus, your ride is a NO_GO for the morning but feels great for later!",
-    "weather_notes": "Tomorrow morning is clear but chilly, with a temperature steady at 61.8°F. In contrast, the evening will be clear and warm at 80°F.",
-    "traffic_notes": "Traffic remains light for both routes. There are no significant changes expected in the commuter traffic patterns.",
-    "route_recommendation_reasoning": "Route A (direct) is the quickest option for your morning commute, but with the weather as it is, it won’t be needed. For the evening, Route B (Gibraltar) is recommended for a pleasant ride home.",
+    "subject_line": "Ride Ready for Tomorrow!",
+    "summary_paragraph": "Tomorrow's ride is set to be fantastic with clear skies and comfortable temperatures. Both morning and evening rides have excellent conditions lined up.",
+    "weather_notes": "Expect clear skies throughout the day with a morning temperature of around 66°F and an evening high of 78°F. There's no chance of rain, making it a pleasant ride!",
+    "traffic_notes": "Traffic is projected to be light, so your trip should be smooth with minimal delays. No significant congestion is expected on either chosen route.",
+    "route_recommendation_reasoning": "For the morning, take Route A (direct) to work for the quickest route with a travel time of about 41.6 minutes. In the evening, Route B (Gibraltar) to home is optimal, offering a slightly shorter duration at 42.1 minutes.",
     "changes_since_last_night": null,
     "gear_tips": null
   }
