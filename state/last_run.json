@@ -1,6 +1,6 @@
 {
-  "mode": "night_before",
-  "run_at": "2026-07-20T23:47:02.433376-04:00",
+  "mode": "morning",
+  "run_at": "2026-07-21T07:58:57.517518-04:00",
   "target_office_day": "2026-07-21",
   "verdict": {
     "overall": "NO_GO",
@@ -16,21 +16,21 @@
         "leg": "evening",
         "verdict": "NO_GO",
         "reasons": [
-          "Evening window: rain forecast (conditions=['Rain'], pop=1.00 >= 0.60)"
+          "Evening window: rain forecast (conditions=['Rain'], pop=0.46 >= 0.60)"
         ]
       }
     ],
     "reasons": [
       "Morning window: rain forecast (conditions=['Rain'], pop=1.00 >= 0.60)",
-      "Evening window: rain forecast (conditions=['Rain'], pop=1.00 >= 0.60)"
+      "Evening window: rain forecast (conditions=['Rain'], pop=0.46 >= 0.60)"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-07-21T12:30:00Z",
     "end": "2026-07-21T13:30:00Z",
-    "temp_min_f": 73.54,
-    "temp_max_f": 73.54,
+    "temp_min_f": 73.22,
+    "temp_max_f": 74.03,
     "pop_max": 1.0,
     "conditions": [
       "Rain"
@@ -41,9 +41,9 @@
     "label": "evening",
     "start": "2026-07-21T21:30:00Z",
     "end": "2026-07-21T22:30:00Z",
-    "temp_min_f": 80.15,
-    "temp_max_f": 80.15,
-    "pop_max": 1.0,
+    "temp_min_f": 79.83,
+    "temp_max_f": 79.83,
+    "pop_max": 0.46,
     "conditions": [
       "Rain"
     ],
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.65,
-      "static_duration_min": 40.983333333333334,
-      "congestion_ratio": 1.0162667751118342,
+      "duration_min": 41.63333333333333,
+      "static_duration_min": 40.78333333333333,
+      "congestion_ratio": 1.0208418471597875,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.05,
-      "static_duration_min": 43.35,
-      "congestion_ratio": 1.0161476355247983,
+      "duration_min": 44.31666666666667,
+      "static_duration_min": 43.56666666666667,
+      "congestion_ratio": 1.0172149961744452,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 44.05,
-      "static_duration_min": 41.916666666666664,
-      "congestion_ratio": 1.0508946322067594,
+      "duration_min": 44.11666666666667,
+      "static_duration_min": 42.03333333333333,
+      "congestion_ratio": 1.049563838223632,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 42.63333333333333,
-      "static_duration_min": 42.86666666666667,
-      "congestion_ratio": 0.994556765163297,
+      "duration_min": 42.68333333333333,
+      "static_duration_min": 42.95,
+      "congestion_ratio": 0.993791230112534,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,9 +101,9 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 50.65,
-      "static_duration_min": 50.983333333333334,
-      "congestion_ratio": 0.993461915658712,
+      "duration_min": 50.71666666666667,
+      "static_duration_min": 51.1,
+      "congestion_ratio": 0.992498369210698,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Ride Decision for Tomorrow: NO_GO",
-    "summary_paragraph": "The ride has been confirmed as a NO_GO for both morning and evening due to expected rain. Stay dry and plan for alternative transportation tomorrow!",
-    "weather_notes": "Tomorrow's forecast predicts steady rain with a probability of precipitation at 100%. Temperatures will hover around 73°F in the morning and rise to about 80°F in the evening.",
-    "traffic_notes": "Traffic levels are reported as light for both routes, however, the rain conditions make it unsafe to ride.",
-    "route_recommendation_reasoning": "Although both the direct and Gibraltar routes have light traffic and take around 41 to 44 minutes, the looming rain makes motorcycle commuting impractical. Safety first!",
-    "changes_since_last_night": null,
-    "gear_tips": null
+    "subject_line": "Morning Commute Update - Rain Forecast",
+    "summary_paragraph": "Unfortunately, the heavy rain forecast continues, leading to a confirmed no-go for today's motorcycle commute.",
+    "weather_notes": "Expect consistent rain throughout the morning with temperatures ranging from 73°F to 74°F. Afternoon conditions remain wet, though the evening's expected rainfall has slightly decreased.",
+    "traffic_notes": "Traffic levels are light on all routes today, however, safety concerns due to rain make riding inadvisable.",
+    "route_recommendation_reasoning": "Despite light traffic, the dangerous rain conditions make it unsafe to ride. Routes are optimal for visibility but not for weather conditions today.",
+    "changes_since_last_night": "Evening chance of rain shifted from 100% to 46%.",
+    "gear_tips": "Stay dry and comfortable indoors; consider rain gear for future rides."
   }
 }
