@@ -1,6 +1,6 @@
 {
-  "mode": "night_before",
-  "run_at": "2026-08-09T22:35:30.048688-04:00",
+  "mode": "morning",
+  "run_at": "2026-08-10T07:19:42.489879-04:00",
   "target_office_day": "2026-08-10",
   "verdict": {
     "overall": "GO",
@@ -9,28 +9,28 @@
         "leg": "morning",
         "verdict": "GO",
         "reasons": [
-          "Morning window: clear, 75-75F, pop=0.00"
+          "Morning window: clear, 67-70F, pop=0.00"
         ]
       },
       {
         "leg": "evening",
         "verdict": "GO",
         "reasons": [
-          "Evening window: clear, 77-77F, pop=0.00"
+          "Evening window: clear, 83-83F, pop=0.00"
         ]
       }
     ],
     "reasons": [
-      "Morning window: clear, 75-75F, pop=0.00",
-      "Evening window: clear, 77-77F, pop=0.00"
+      "Morning window: clear, 67-70F, pop=0.00",
+      "Evening window: clear, 83-83F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-08-10T12:30:00Z",
     "end": "2026-08-10T13:30:00Z",
-    "temp_min_f": 74.7,
-    "temp_max_f": 74.7,
+    "temp_min_f": 67.41,
+    "temp_max_f": 70.3,
     "pop_max": 0.0,
     "conditions": [
       "Clouds"
@@ -41,8 +41,8 @@
     "label": "evening",
     "start": "2026-08-10T21:30:00Z",
     "end": "2026-08-10T22:30:00Z",
-    "temp_min_f": 77.38,
-    "temp_max_f": 77.38,
+    "temp_min_f": 82.58,
+    "temp_max_f": 82.58,
     "pop_max": 0.0,
     "conditions": [
       "Clouds"
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.333333333333336,
-      "static_duration_min": 41.1,
-      "congestion_ratio": 1.0056772100567721,
+      "duration_min": 41.31666666666667,
+      "static_duration_min": 40.8,
+      "congestion_ratio": 1.0126633986928104,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.05,
-      "static_duration_min": 43.55,
-      "congestion_ratio": 1.0114810562571757,
+      "duration_min": 44.3,
+      "static_duration_min": 43.233333333333334,
+      "congestion_ratio": 1.0246723207401696,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Ready for a Great Ride Tomorrow!",
-    "summary_paragraph": "Your ride verdict is set to GO for tomorrow! Both morning and evening windows look clear and comfortable for your motorcycle commute.",
-    "weather_notes": "Tomorrow's weather is pleasant with temperatures around 75°F in the morning and 77°F in the evening, both under clear skies and no rain expected.",
-    "traffic_notes": "Traffic is projected to be light for your commute, making it a smooth ride in both directions.",
-    "route_recommendation_reasoning": "For the morning, Route A (direct) is the best choice, offering a quick 41 minutes ride with minimal congestion. In the evening, Route B (Gibraltar) is optimal, providing a slightly faster route at 42.4 minutes with similar conditions.",
+    "subject_line": "Good Morning! Ready to Ride?",
+    "summary_paragraph": "It's a perfect day for a ride with clear skies and pleasant temperatures. Both the morning and evening looks great for your commute!",
+    "weather_notes": "The morning starts off clear with temperatures between 67-70°F, and no chance of rain. Expect a clear evening as well with temperatures around 83°F.",
+    "traffic_notes": "Traffic is light in both directions, so you should have a smooth ride. Just a note that both recommended routes include highways, but they are flowing well.",
+    "route_recommendation_reasoning": "Route A (direct) is your best option to work this morning due to its shorter duration and light traffic. For the ride home, Route B (Gibraltar) is ideal, slightly shorter and also experiencing light traffic.",
     "changes_since_last_night": null,
-    "gear_tips": null
+    "gear_tips": "Make sure to wear layers in the morning since it will be cooler, then transition to lighter gear for the warmer evening ride."
   }
 }
