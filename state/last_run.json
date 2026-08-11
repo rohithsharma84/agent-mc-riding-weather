@@ -1,61 +1,61 @@
 {
-  "mode": "night_before",
-  "run_at": "2026-08-10T22:28:33.169642-04:00",
+  "mode": "morning",
+  "run_at": "2026-08-11T07:02:52.183781-04:00",
   "target_office_day": "2026-08-11",
   "verdict": {
     "overall": "NO_GO",
     "legs": [
       {
         "leg": "morning",
-        "verdict": "NO_GO",
+        "verdict": "GO",
         "reasons": [
-          "Morning window: rain forecast (conditions=['Rain'], pop=0.20 >= 0.60)"
+          "Morning window: clear, 70-71F, pop=0.00"
         ]
       },
       {
         "leg": "evening",
-        "verdict": "GO",
+        "verdict": "NO_GO",
         "reasons": [
-          "Evening window: clear, 82-82F, pop=0.00"
+          "Evening window: rain forecast (conditions=['Rain'], pop=0.28 >= 0.60)"
         ]
       }
     ],
     "reasons": [
-      "Morning window: rain forecast (conditions=['Rain'], pop=0.20 >= 0.60)",
-      "Evening window: clear, 82-82F, pop=0.00"
+      "Morning window: clear, 70-71F, pop=0.00",
+      "Evening window: rain forecast (conditions=['Rain'], pop=0.28 >= 0.60)"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-08-11T12:30:00Z",
     "end": "2026-08-11T13:30:00Z",
-    "temp_min_f": 70.75,
-    "temp_max_f": 70.75,
-    "pop_max": 0.2,
-    "conditions": [
-      "Rain"
-    ],
-    "has_rain_forecast": true
-  },
-  "evening_forecast": {
-    "label": "evening",
-    "start": "2026-08-11T21:30:00Z",
-    "end": "2026-08-11T22:30:00Z",
-    "temp_min_f": 82.29,
-    "temp_max_f": 82.29,
+    "temp_min_f": 70.3,
+    "temp_max_f": 70.81,
     "pop_max": 0.0,
     "conditions": [
       "Clouds"
     ],
     "has_rain_forecast": false
   },
+  "evening_forecast": {
+    "label": "evening",
+    "start": "2026-08-11T21:30:00Z",
+    "end": "2026-08-11T22:30:00Z",
+    "temp_min_f": 75.52,
+    "temp_max_f": 75.52,
+    "pop_max": 0.28,
+    "conditions": [
+      "Rain"
+    ],
+    "has_rain_forecast": true
+  },
   "routes": [
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.766666666666666,
-      "static_duration_min": 41.1,
-      "congestion_ratio": 1.016220600162206,
+      "duration_min": 41.28333333333333,
+      "static_duration_min": 40.8,
+      "congestion_ratio": 1.0118464052287581,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.166666666666664,
-      "static_duration_min": 43.55,
-      "congestion_ratio": 1.01415996938385,
+      "duration_min": 44.36666666666667,
+      "static_duration_min": 43.233333333333334,
+      "congestion_ratio": 1.0262143407864301,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Prepare for a Rainy Morning Commute!",
-    "summary_paragraph": "Tomorrow's morning commute isn't looking good due to rain in the forecast, while the evening ride seems perfect with clear skies.",
-    "weather_notes": "Expect rain in the morning with a 20% chance of precipitation, which should make riding impractical until the weather clears in the evening.",
-    "traffic_notes": "Traffic conditions are light for both directions, but that's overshadowed by the rain hazard in the morning.",
-    "route_recommendation_reasoning": "Though Route A (direct) is the best option in terms of duration for the morning, the rainy weather makes even the best route a no-go.",
-    "changes_since_last_night": null,
-    "gear_tips": null
+    "subject_line": "Morning Ride Update: Stay Dry!",
+    "summary_paragraph": "Good morning! While your morning ride is clear and pleasant, the evening forecast shows a significant chance of rain. It’s best to avoid riding today.",
+    "weather_notes": "This morning’s weather is clear with temperatures between 70-71°F and no chance of rain. However, later in the evening, rain is expected with a 28% probability.",
+    "traffic_notes": "Traffic is light on all recommended routes, making for a smooth ride this morning. Expect similar conditions on your way home; just be cautious about the incoming rain later.",
+    "route_recommendation_reasoning": "Route A (direct) is the best way to work this morning due to its slight edge in duration and gentle traffic conditions. For your ride home, Route B (Gibraltar) is recommended to keep you clear of any surprises as the weather changes.",
+    "changes_since_last_night": "Morning chance of rain shifted from 20% to 0%, morning rain forecast cleared, evening high temp shifted from 82F to 76F, evening chance of rain shifted from 0% to 28%, evening rain forecast appeared.",
+    "gear_tips": "Make sure to pack rain gear for your commute home, just in case! A waterproof jacket can help keep you dry later."
   }
 }
