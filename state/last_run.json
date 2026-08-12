@@ -1,37 +1,37 @@
 {
-  "mode": "night_before",
-  "run_at": "2026-08-11T22:45:42.659481-04:00",
+  "mode": "morning",
+  "run_at": "2026-08-12T07:09:21.531504-04:00",
   "target_office_day": "2026-08-12",
   "verdict": {
-    "overall": "NO_GO",
+    "overall": "GO",
     "legs": [
       {
         "leg": "morning",
-        "verdict": "NO_GO",
+        "verdict": "GO",
         "reasons": [
-          "Morning window: rain forecast (conditions=['Clouds'], pop=0.71 >= 0.60)"
+          "Morning window: clear, 69-70F, pop=0.00"
         ]
       },
       {
         "leg": "evening",
         "verdict": "GO",
         "reasons": [
-          "Evening window: clear, 81-81F, pop=0.00"
+          "Evening window: clear, 83-83F, pop=0.00"
         ]
       }
     ],
     "reasons": [
-      "Morning window: rain forecast (conditions=['Clouds'], pop=0.71 >= 0.60)",
-      "Evening window: clear, 81-81F, pop=0.00"
+      "Morning window: clear, 69-70F, pop=0.00",
+      "Evening window: clear, 83-83F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-08-12T12:30:00Z",
     "end": "2026-08-12T13:30:00Z",
-    "temp_min_f": 68.38,
-    "temp_max_f": 68.38,
-    "pop_max": 0.71,
+    "temp_min_f": 69.49,
+    "temp_max_f": 69.76,
+    "pop_max": 0.0,
     "conditions": [
       "Clouds"
     ],
@@ -41,11 +41,11 @@
     "label": "evening",
     "start": "2026-08-12T21:30:00Z",
     "end": "2026-08-12T22:30:00Z",
-    "temp_min_f": 80.55,
-    "temp_max_f": 80.55,
+    "temp_min_f": 83.48,
+    "temp_max_f": 83.48,
     "pop_max": 0.0,
     "conditions": [
-      "Clouds"
+      "Clear"
     ],
     "has_rain_forecast": false
   },
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.583333333333336,
-      "static_duration_min": 41.1,
-      "congestion_ratio": 1.0117599351175994,
+      "duration_min": 41.266666666666666,
+      "static_duration_min": 40.8,
+      "congestion_ratio": 1.011437908496732,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 43.95,
-      "static_duration_min": 43.55,
-      "congestion_ratio": 1.0091848450057406,
+      "duration_min": 43.85,
+      "static_duration_min": 43.61666666666667,
+      "congestion_ratio": 1.0053496369889185,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Daily Ride Update: Morning NO_GO",
-    "summary_paragraph": "Tomorrow's ride to work is a definite NO_GO due to rain predicted in the morning. The evening ride looks clear and pleasant.",
-    "weather_notes": "In the morning, expect cloudy skies with a significant chance of rain (71% probability). In the evening, conditions will clear up with temperatures around 81°F and no rain expected.",
-    "traffic_notes": "Traffic is expected to be light regardless of the route chosen, making your evening commute enjoyable.",
-    "route_recommendation_reasoning": "For the morning, the best route is Route A (direct) due to its light congestion and quicker travel time. In the evening, Route B (Gibraltar) would be ideal, providing a pleasant ride given the clear weather.",
-    "changes_since_last_night": null,
-    "gear_tips": null
+    "subject_line": "Morning Ride: Perfect Weather Ahead!",
+    "summary_paragraph": "Great news! The ride verdict has shifted from NO_GO to GO. Enjoy clear skies and pleasant temperatures during your commute today!",
+    "weather_notes": "The morning is clear with temperatures around 69-70F and no chance of rain, perfect for riding! Expect the evening to be similarly clear and warm at 83F.",
+    "traffic_notes": "Traffic looks light this morning with minor congestion. The best routes will have you cruising smoothly to your destination.",
+    "route_recommendation_reasoning": "Route A (direct) is the best option to work due to its slight advantage in duration and consistent light traffic. For the return home, Route B (Gibraltar) balances a good ride with favorable conditions as well.",
+    "changes_since_last_night": "Verdict changed from NO_GO to GO, Morning chance of rain shifted from 71% to 0%",
+    "gear_tips": "Lightweight gear is recommended for today’s warm temperatures, but don't forget to pack a water bottle!"
   }
 }
