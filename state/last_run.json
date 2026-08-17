@@ -1,37 +1,37 @@
 {
-  "mode": "morning",
-  "run_at": "2026-08-12T07:09:21.531504-04:00",
-  "target_office_day": "2026-08-12",
+  "mode": "night_before",
+  "run_at": "2026-08-16T21:55:51.817347-04:00",
+  "target_office_day": "2026-08-17",
   "verdict": {
-    "overall": "GO",
+    "overall": "NO_GO",
     "legs": [
       {
         "leg": "morning",
-        "verdict": "GO",
+        "verdict": "NO_GO",
         "reasons": [
-          "Morning window: clear, 69-70F, pop=0.00"
+          "Morning window: rain forecast (conditions=['Clouds'], pop=0.80 >= 0.60)"
         ]
       },
       {
         "leg": "evening",
-        "verdict": "GO",
+        "verdict": "NO_GO",
         "reasons": [
-          "Evening window: clear, 83-83F, pop=0.00"
+          "Evening window: rain forecast (conditions=['Rain'], pop=0.87 >= 0.60)"
         ]
       }
     ],
     "reasons": [
-      "Morning window: clear, 69-70F, pop=0.00",
-      "Evening window: clear, 83-83F, pop=0.00"
+      "Morning window: rain forecast (conditions=['Clouds'], pop=0.80 >= 0.60)",
+      "Evening window: rain forecast (conditions=['Rain'], pop=0.87 >= 0.60)"
     ]
   },
   "morning_forecast": {
     "label": "morning",
-    "start": "2026-08-12T12:30:00Z",
-    "end": "2026-08-12T13:30:00Z",
-    "temp_min_f": 69.49,
-    "temp_max_f": 69.76,
-    "pop_max": 0.0,
+    "start": "2026-08-17T12:30:00Z",
+    "end": "2026-08-17T13:30:00Z",
+    "temp_min_f": 72.07,
+    "temp_max_f": 72.07,
+    "pop_max": 0.8,
     "conditions": [
       "Clouds"
     ],
@@ -39,23 +39,23 @@
   },
   "evening_forecast": {
     "label": "evening",
-    "start": "2026-08-12T21:30:00Z",
-    "end": "2026-08-12T22:30:00Z",
-    "temp_min_f": 83.48,
-    "temp_max_f": 83.48,
-    "pop_max": 0.0,
+    "start": "2026-08-17T21:30:00Z",
+    "end": "2026-08-17T22:30:00Z",
+    "temp_min_f": 83.37,
+    "temp_max_f": 83.37,
+    "pop_max": 0.87,
     "conditions": [
-      "Clear"
+      "Rain"
     ],
-    "has_rain_forecast": false
+    "has_rain_forecast": true
   },
   "routes": [
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.266666666666666,
-      "static_duration_min": 40.8,
-      "congestion_ratio": 1.011437908496732,
+      "duration_min": 41.3,
+      "static_duration_min": 41.1,
+      "congestion_ratio": 1.0048661800486618,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 43.85,
-      "static_duration_min": 43.61666666666667,
-      "congestion_ratio": 1.0053496369889185,
+      "duration_min": 43.983333333333334,
+      "static_duration_min": 43.55,
+      "congestion_ratio": 1.0099502487562189,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 44.31666666666667,
+      "duration_min": 42.93333333333333,
       "static_duration_min": 42.083333333333336,
-      "congestion_ratio": 1.0530693069306931,
+      "congestion_ratio": 1.0201980198019802,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 43.3,
+      "duration_min": 42.53333333333333,
       "static_duration_min": 43.06666666666667,
-      "congestion_ratio": 1.0054179566563468,
+      "congestion_ratio": 0.9876160990712074,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,9 +101,9 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 51.43333333333333,
+      "duration_min": 50.56666666666667,
       "static_duration_min": 51.18333333333333,
-      "congestion_ratio": 1.0048844024747638,
+      "congestion_ratio": 0.9879518072289156,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Morning Ride: Perfect Weather Ahead!",
-    "summary_paragraph": "Great news! The ride verdict has shifted from NO_GO to GO. Enjoy clear skies and pleasant temperatures during your commute today!",
-    "weather_notes": "The morning is clear with temperatures around 69-70F and no chance of rain, perfect for riding! Expect the evening to be similarly clear and warm at 83F.",
-    "traffic_notes": "Traffic looks light this morning with minor congestion. The best routes will have you cruising smoothly to your destination.",
-    "route_recommendation_reasoning": "Route A (direct) is the best option to work due to its slight advantage in duration and consistent light traffic. For the return home, Route B (Gibraltar) balances a good ride with favorable conditions as well.",
-    "changes_since_last_night": "Verdict changed from NO_GO to GO, Morning chance of rain shifted from 71% to 0%",
-    "gear_tips": "Lightweight gear is recommended for today’s warm temperatures, but don't forget to pack a water bottle!"
+    "subject_line": "Motorcycle Commute Update: No-Go Tomorrow",
+    "summary_paragraph": "Due to rain forecasts tomorrow, riding your motorcycle is not recommended. Stay safe and enjoy the comfort of four wheels!",
+    "weather_notes": "The morning brings cloudy skies with an 80% chance of rain, while the evening is forecasted to have rain with an 87% chance.",
+    "traffic_notes": "Traffic is expected to be light with no significant congestion, but the weather conditions take precedence.",
+    "route_recommendation_reasoning": "While Route A (direct) to work is the quickest and light on traffic, Route B (Gibraltar) offers a nice alternative for the ride home. However, given the rain forecast for both legs of the journey, it's best to avoid riding altogether.",
+    "changes_since_last_night": null,
+    "gear_tips": null
   }
 }
