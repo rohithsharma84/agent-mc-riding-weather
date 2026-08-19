@@ -1,7 +1,7 @@
 {
-  "mode": "morning",
-  "run_at": "2026-08-18T06:44:36.080992-04:00",
-  "target_office_day": "2026-08-18",
+  "mode": "night_before",
+  "run_at": "2026-08-18T21:53:27.942727-04:00",
+  "target_office_day": "2026-08-19",
   "verdict": {
     "overall": "GO",
     "legs": [
@@ -9,7 +9,7 @@
         "leg": "morning",
         "verdict": "GO",
         "reasons": [
-          "Morning window: clear, 70-72F, pop=0.00"
+          "Morning window: clear, 71-71F, pop=0.00"
         ]
       },
       {
@@ -21,31 +21,31 @@
       }
     ],
     "reasons": [
-      "Morning window: clear, 70-72F, pop=0.00",
+      "Morning window: clear, 71-71F, pop=0.00",
       "Evening window: clear, 83-83F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
-    "start": "2026-08-18T12:30:00Z",
-    "end": "2026-08-18T13:30:00Z",
-    "temp_min_f": 70.39,
-    "temp_max_f": 71.85,
+    "start": "2026-08-19T12:30:00Z",
+    "end": "2026-08-19T13:30:00Z",
+    "temp_min_f": 70.66,
+    "temp_max_f": 70.66,
     "pop_max": 0.0,
     "conditions": [
-      "Clouds"
+      "Clear"
     ],
     "has_rain_forecast": false
   },
   "evening_forecast": {
     "label": "evening",
-    "start": "2026-08-18T21:30:00Z",
-    "end": "2026-08-18T22:30:00Z",
-    "temp_min_f": 83.07,
-    "temp_max_f": 83.07,
+    "start": "2026-08-19T21:30:00Z",
+    "end": "2026-08-19T22:30:00Z",
+    "temp_min_f": 83.39,
+    "temp_max_f": 83.39,
     "pop_max": 0.0,
     "conditions": [
-      "Clear"
+      "Clouds"
     ],
     "has_rain_forecast": false
   },
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.5,
-      "static_duration_min": 40.81666666666667,
-      "congestion_ratio": 1.0167415271539404,
+      "duration_min": 41.583333333333336,
+      "static_duration_min": 41.15,
+      "congestion_ratio": 1.010530579181855,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.68333333333333,
-      "static_duration_min": 43.266666666666666,
-      "congestion_ratio": 1.0327426810477658,
+      "duration_min": 43.85,
+      "static_duration_min": 43.583333333333336,
+      "congestion_ratio": 1.0061185468451244,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 44.03333333333333,
+      "duration_min": 44.35,
       "static_duration_min": 42.15,
-      "congestion_ratio": 1.0446816923685251,
+      "congestion_ratio": 1.0521945432977462,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 42.65,
+      "duration_min": 43.3,
       "static_duration_min": 43.1,
-      "congestion_ratio": 0.9895591647331786,
+      "congestion_ratio": 1.0046403712296983,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,9 +101,9 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 50.71666666666667,
+      "duration_min": 51.45,
       "static_duration_min": 51.25,
-      "congestion_ratio": 0.9895934959349594,
+      "congestion_ratio": 1.0039024390243902,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Morning Motorcycle Commute: Perfect Riding Weather!",
-    "summary_paragraph": "Great news! The weather is still clear with temperatures starting off around 70-72°F, ideal for a morning ride. Expect similar conditions for your evening journey as well.",
-    "weather_notes": "Morning forecast shows clear skies with temperatures around 70-72°F. No chance of rain today!",
-    "traffic_notes": "Traffic remains light in the morning, so you should enjoy a smooth ride without major delays.",
-    "route_recommendation_reasoning": "Route A (direct) is the best option to work due to its shorter duration and light traffic. For your return home, Route B (Gibraltar) is recommended for an efficient ride through the evening.",
+    "subject_line": "Ready to Ride Tomorrow!",
+    "summary_paragraph": "It’s a clear day ahead for your motorcycle commute. Enjoy the pleasant temperatures in the morning and evening!",
+    "weather_notes": "Expect clear conditions tomorrow with temperatures around 71°F in the morning and a warm 83°F in the evening. No rain is expected, so it should be smooth sailing!",
+    "traffic_notes": "Traffic will be light throughout both commutes. Minimal delays are anticipated, making it a great day to ride.",
+    "route_recommendation_reasoning": "Route A (direct) to work is optimal with a duration of about 42 minutes and light congestion. For the ride home, Route B (Gibraltar) offers a comparable 43-minute ride with equally light traffic.",
     "changes_since_last_night": null,
-    "gear_tips": null
+    "gear_tips": "Make sure to wear your standard gear for a warm day - a light jacket would be great for the morning chill! Stay safe and enjoy the ride!"
   }
 }
