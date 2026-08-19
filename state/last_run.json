@@ -1,36 +1,36 @@
 {
-  "mode": "night_before",
-  "run_at": "2026-08-18T21:53:27.942727-04:00",
+  "mode": "morning",
+  "run_at": "2026-08-19T06:44:02.247198-04:00",
   "target_office_day": "2026-08-19",
   "verdict": {
-    "overall": "GO",
+    "overall": "NO_GO",
     "legs": [
       {
         "leg": "morning",
-        "verdict": "GO",
+        "verdict": "NO_GO",
         "reasons": [
-          "Morning window: clear, 71-71F, pop=0.00"
+          "Morning window: temperature 63.8-67.8F outside 65-95F range"
         ]
       },
       {
         "leg": "evening",
         "verdict": "GO",
         "reasons": [
-          "Evening window: clear, 83-83F, pop=0.00"
+          "Evening window: clear, 81-81F, pop=0.00"
         ]
       }
     ],
     "reasons": [
-      "Morning window: clear, 71-71F, pop=0.00",
-      "Evening window: clear, 83-83F, pop=0.00"
+      "Morning window: temperature 63.8-67.8F outside 65-95F range",
+      "Evening window: clear, 81-81F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
     "start": "2026-08-19T12:30:00Z",
     "end": "2026-08-19T13:30:00Z",
-    "temp_min_f": 70.66,
-    "temp_max_f": 70.66,
+    "temp_min_f": 63.81,
+    "temp_max_f": 67.77,
     "pop_max": 0.0,
     "conditions": [
       "Clear"
@@ -41,8 +41,8 @@
     "label": "evening",
     "start": "2026-08-19T21:30:00Z",
     "end": "2026-08-19T22:30:00Z",
-    "temp_min_f": 83.39,
-    "temp_max_f": 83.39,
+    "temp_min_f": 80.78,
+    "temp_max_f": 80.78,
     "pop_max": 0.0,
     "conditions": [
       "Clouds"
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.583333333333336,
-      "static_duration_min": 41.15,
-      "congestion_ratio": 1.010530579181855,
+      "duration_min": 41.516666666666666,
+      "static_duration_min": 40.81666666666667,
+      "congestion_ratio": 1.0171498570845243,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 43.85,
-      "static_duration_min": 43.583333333333336,
-      "congestion_ratio": 1.0061185468451244,
+      "duration_min": 44.28333333333333,
+      "static_duration_min": 43.266666666666666,
+      "congestion_ratio": 1.023497688751926,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -112,12 +112,12 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Ready to Ride Tomorrow!",
-    "summary_paragraph": "It’s a clear day ahead for your motorcycle commute. Enjoy the pleasant temperatures in the morning and evening!",
-    "weather_notes": "Expect clear conditions tomorrow with temperatures around 71°F in the morning and a warm 83°F in the evening. No rain is expected, so it should be smooth sailing!",
-    "traffic_notes": "Traffic will be light throughout both commutes. Minimal delays are anticipated, making it a great day to ride.",
-    "route_recommendation_reasoning": "Route A (direct) to work is optimal with a duration of about 42 minutes and light congestion. For the ride home, Route B (Gibraltar) offers a comparable 43-minute ride with equally light traffic.",
-    "changes_since_last_night": null,
-    "gear_tips": "Make sure to wear your standard gear for a warm day - a light jacket would be great for the morning chill! Stay safe and enjoy the ride!"
+    "subject_line": "Morning Commute Update: No Riding Today",
+    "summary_paragraph": "Good morning! Today's ride verdict has changed from GO to NO_GO due to early morning temperatures being too cool for a comfortable ride. Let's take a look at the weather and traffic conditions for the day ahead.",
+    "weather_notes": "Current temperatures for the morning are ranging from 63.8F to 67.8F, which is outside the preferred range of 65-95F for a pleasant ride. The forecast is clear but chilly.",
+    "traffic_notes": "Traffic conditions are light this morning with congestion levels remaining low. However, given the weather, riding is still not recommended.",
+    "route_recommendation_reasoning": "Route A (direct) is the best option to work as it has slight congestion but overall reasonable timing. For the ride home, Route B (Gibraltar) is ideal given its efficiency and light traffic.",
+    "changes_since_last_night": "The ride verdict has changed from GO to NO_GO for today.",
+    "gear_tips": null
   }
 }
