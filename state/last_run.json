@@ -1,7 +1,7 @@
 {
   "mode": "night_before",
-  "run_at": "2026-09-21T00:58:06.985420-04:00",
-  "target_office_day": "2026-09-21",
+  "run_at": "2026-09-22T00:58:40.433014-04:00",
+  "target_office_day": "2026-09-22",
   "verdict": {
     "overall": "NO_GO",
     "legs": [
@@ -9,53 +9,53 @@
         "leg": "morning",
         "verdict": "NO_GO",
         "reasons": [
-          "Morning window: temperature 60.1-61.9F outside 65-95F range"
+          "Morning window: rain forecast (conditions=['Rain'], pop=1.00 >= 0.60)"
         ]
       },
       {
         "leg": "evening",
         "verdict": "NO_GO",
         "reasons": [
-          "Evening window: temperature 63.8-63.8F outside 65-95F range"
+          "Evening window: rain forecast (conditions=['Rain'], pop=0.20 >= 0.60)"
         ]
       }
     ],
     "reasons": [
-      "Morning window: temperature 60.1-61.9F outside 65-95F range",
-      "Evening window: temperature 63.8-63.8F outside 65-95F range"
+      "Morning window: rain forecast (conditions=['Rain'], pop=1.00 >= 0.60)",
+      "Evening window: rain forecast (conditions=['Rain'], pop=0.20 >= 0.60)"
     ]
   },
   "morning_forecast": {
     "label": "morning",
-    "start": "2026-09-21T12:30:00Z",
-    "end": "2026-09-21T13:30:00Z",
-    "temp_min_f": 60.12,
-    "temp_max_f": 61.92,
-    "pop_max": 0.0,
+    "start": "2026-09-22T12:30:00Z",
+    "end": "2026-09-22T13:30:00Z",
+    "temp_min_f": 55.24,
+    "temp_max_f": 57.47,
+    "pop_max": 1.0,
     "conditions": [
-      "Clouds"
+      "Rain"
     ],
-    "has_rain_forecast": false
+    "has_rain_forecast": true
   },
   "evening_forecast": {
     "label": "evening",
-    "start": "2026-09-21T21:30:00Z",
-    "end": "2026-09-21T22:30:00Z",
-    "temp_min_f": 63.79,
-    "temp_max_f": 63.79,
-    "pop_max": 0.0,
+    "start": "2026-09-22T21:30:00Z",
+    "end": "2026-09-22T22:30:00Z",
+    "temp_min_f": 59.65,
+    "temp_max_f": 59.65,
+    "pop_max": 0.2,
     "conditions": [
-      "Clouds"
+      "Rain"
     ],
-    "has_rain_forecast": false
+    "has_rain_forecast": true
   },
   "routes": [
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.233333333333334,
+      "duration_min": 41.56666666666667,
       "static_duration_min": 40.916666666666664,
-      "congestion_ratio": 1.0077393075356416,
+      "congestion_ratio": 1.015885947046843,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.05,
+      "duration_min": 44.31666666666667,
       "static_duration_min": 43.4,
-      "congestion_ratio": 1.0149769585253456,
+      "congestion_ratio": 1.021121351766513,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 43.166666666666664,
+      "duration_min": 44.21666666666667,
       "static_duration_min": 42.31666666666667,
-      "congestion_ratio": 1.020086648286727,
+      "congestion_ratio": 1.0448995667585663,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 42.833333333333336,
+      "duration_min": 42.983333333333334,
       "static_duration_min": 43.4,
-      "congestion_ratio": 0.9869431643625192,
+      "congestion_ratio": 0.9903993855606759,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,9 +101,9 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 50.75,
+      "duration_min": 50.983333333333334,
       "static_duration_min": 51.45,
-      "congestion_ratio": 0.9863945578231292,
+      "congestion_ratio": 0.9909297052154195,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
@@ -112,11 +112,11 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Tomorrow's Ride Verdict: NO_GO 🏍️",
-    "summary_paragraph": "Unfortunately, tomorrow’s ride is a definite NO_GO due to low temperatures both in the morning and evening.",
-    "weather_notes": "In the morning, temperatures will range from 60.1°F to 61.9°F, with cloud cover but no rain expected. The evening will see a steady temperature of 63.8°F, also under cloudy conditions without any rain.",
-    "traffic_notes": "Traffic is expected to be light for both routes, with no significant congestion or road closures reported.",
-    "route_recommendation_reasoning": "The best route to work is Route A (direct), as it has the lowest duration and light congestion despite including a highway. The best route home is Route B (Gibraltar), which remains efficient with minimal traffic.",
+    "subject_line": "Ride Alert: Rain Ahead!",
+    "summary_paragraph": "Just a reminder that commuting by motorcycle won't be safe tomorrow due to rain. Make sure to plan for a car or public transport instead!",
+    "weather_notes": "Rain is expected throughout the morning with a high chance of precipitation (100%), and slightly less likely in the evening (20%).",
+    "traffic_notes": "Traffic levels are expected to be light but aren't a concern due to the weather conditions.",
+    "route_recommendation_reasoning": "Although Route A (direct) is the best choice in terms of time, the rain will make it unsafe to ride tomorrow. Similarly, Route B (Gibraltar) offers a suitable second option but is also not advisable with the rain.",
     "changes_since_last_night": null,
     "gear_tips": null
   }
