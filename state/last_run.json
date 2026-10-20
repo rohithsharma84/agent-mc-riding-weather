@@ -1,7 +1,7 @@
 {
   "mode": "night_before",
-  "run_at": "2026-10-19T00:42:57.259188-04:00",
-  "target_office_day": "2026-10-19",
+  "run_at": "2026-10-20T00:52:50.714283-04:00",
+  "target_office_day": "2026-10-20",
   "verdict": {
     "overall": "NO_GO",
     "legs": [
@@ -9,28 +9,28 @@
         "leg": "morning",
         "verdict": "NO_GO",
         "reasons": [
-          "Morning window: temperature 41.4-42.3F outside 65-95F range"
+          "Morning window: temperature 46.9-47.5F outside 65-95F range"
         ]
       },
       {
         "leg": "evening",
-        "verdict": "NO_GO",
+        "verdict": "GO",
         "reasons": [
-          "Evening window: temperature 63.0-63.0F outside 65-95F range"
+          "Evening window: clear, 66-66F, pop=0.00"
         ]
       }
     ],
     "reasons": [
-      "Morning window: temperature 41.4-42.3F outside 65-95F range",
-      "Evening window: temperature 63.0-63.0F outside 65-95F range"
+      "Morning window: temperature 46.9-47.5F outside 65-95F range",
+      "Evening window: clear, 66-66F, pop=0.00"
     ]
   },
   "morning_forecast": {
     "label": "morning",
-    "start": "2026-10-19T12:30:00Z",
-    "end": "2026-10-19T13:30:00Z",
-    "temp_min_f": 41.36,
-    "temp_max_f": 42.33,
+    "start": "2026-10-20T12:30:00Z",
+    "end": "2026-10-20T13:30:00Z",
+    "temp_min_f": 46.94,
+    "temp_max_f": 47.52,
     "pop_max": 0.0,
     "conditions": [
       "Clear"
@@ -39,10 +39,10 @@
   },
   "evening_forecast": {
     "label": "evening",
-    "start": "2026-10-19T21:30:00Z",
-    "end": "2026-10-19T22:30:00Z",
-    "temp_min_f": 63.03,
-    "temp_max_f": 63.03,
+    "start": "2026-10-20T21:30:00Z",
+    "end": "2026-10-20T22:30:00Z",
+    "temp_min_f": 65.77,
+    "temp_max_f": 65.77,
     "pop_max": 0.0,
     "conditions": [
       "Clear"
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 41.71666666666667,
+      "duration_min": 42.45,
       "static_duration_min": 40.916666666666664,
-      "congestion_ratio": 1.019551934826884,
+      "congestion_ratio": 1.0374745417515274,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 44.266666666666666,
+      "duration_min": 44.833333333333336,
       "static_duration_min": 43.4,
-      "congestion_ratio": 1.0199692780337941,
+      "congestion_ratio": 1.033026113671275,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 44.38333333333333,
-      "static_duration_min": 42.31666666666667,
-      "congestion_ratio": 1.0488381252461598,
+      "duration_min": 45.666666666666664,
+      "static_duration_min": 42.516666666666666,
+      "congestion_ratio": 1.0740885927087416,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 43.5,
+      "duration_min": 43.35,
       "static_duration_min": 43.4,
-      "congestion_ratio": 1.0023041474654377,
+      "congestion_ratio": 0.9988479262672811,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,9 +101,9 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 51.233333333333334,
+      "duration_min": 51.46666666666667,
       "static_duration_min": 51.45,
-      "congestion_ratio": 0.9957887917071591,
+      "congestion_ratio": 1.0003239390994494,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
@@ -112,11 +112,11 @@
   "best_route_to_work": "Route A (direct)",
   "best_route_to_home": "Route B (Gibraltar)",
   "narrative": {
-    "subject_line": "Ride Verdict - No Go Tomorrow",
-    "summary_paragraph": "Both the morning and evening rides have been ruled out due to temperatures being outside the comfortable range. Please stay safe and warm!",
-    "weather_notes": "Tomorrow's morning forecast shows clear skies with temperatures between 41.4-42.3°F, which is below the comfortable range. The evening also stays clear but only reaches 63°F, still below the desired threshold for riding.",
-    "traffic_notes": "Traffic is expected to be light on both recommended routes, with no major congestion issues noted. However, given the weather conditions, it’s best to refrain from riding altogether.",
-    "route_recommendation_reasoning": "While Route A (direct) is the best option to work based on duration, and Route B (Gibraltar) for the return home, the temperatures make riding unadvisable.",
+    "subject_line": "Night Before Ride Update",
+    "summary_paragraph": "The ride verdict is clear: a no-go for the morning. Enjoy a pleasant evening ride instead!",
+    "weather_notes": "The morning temperature will range between 46.9 and 47.5°F, outside the comfortable riding span of 65-95°F. Fortunately, the evening will offer clear skies and a more pleasant 66°F.",
+    "traffic_notes": "Traffic is light both in the morning and evening, making for a smoother commute wherever you're headed tonight!",
+    "route_recommendation_reasoning": "Route A is your best choice to work tomorrow due to its straightforward path and light traffic.",
     "changes_since_last_night": null,
     "gear_tips": null
   }
