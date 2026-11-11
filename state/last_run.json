@@ -1,7 +1,7 @@
 {
   "mode": "night_before",
-  "run_at": "2026-11-10T02:20:37.603367-05:00",
-  "target_office_day": "2026-11-10",
+  "run_at": "2026-11-11T01:25:25.589317-05:00",
+  "target_office_day": "2026-11-11",
   "verdict": {
     "overall": "NO_GO",
     "legs": [
@@ -9,28 +9,28 @@
         "leg": "morning",
         "verdict": "NO_GO",
         "reasons": [
-          "Morning window: temperature 44.4-44.8F outside 65-95F range"
+          "Morning window: temperature 44.9-45.9F outside 65-95F range"
         ]
       },
       {
         "leg": "evening",
         "verdict": "NO_GO",
         "reasons": [
-          "Evening window: temperature 61.0-61.0F outside 65-95F range"
+          "Evening window: temperature 58.3-58.3F outside 65-95F range"
         ]
       }
     ],
     "reasons": [
-      "Morning window: temperature 44.4-44.8F outside 65-95F range",
-      "Evening window: temperature 61.0-61.0F outside 65-95F range"
+      "Morning window: temperature 44.9-45.9F outside 65-95F range",
+      "Evening window: temperature 58.3-58.3F outside 65-95F range"
     ]
   },
   "morning_forecast": {
     "label": "morning",
-    "start": "2026-11-10T13:30:00Z",
-    "end": "2026-11-10T14:30:00Z",
-    "temp_min_f": 44.38,
-    "temp_max_f": 44.83,
+    "start": "2026-11-11T13:30:00Z",
+    "end": "2026-11-11T14:30:00Z",
+    "temp_min_f": 44.85,
+    "temp_max_f": 45.93,
     "pop_max": 0.0,
     "conditions": [
       "Clouds"
@@ -39,13 +39,13 @@
   },
   "evening_forecast": {
     "label": "evening",
-    "start": "2026-11-10T22:30:00Z",
-    "end": "2026-11-10T23:30:00Z",
-    "temp_min_f": 61.02,
-    "temp_max_f": 61.02,
+    "start": "2026-11-11T22:30:00Z",
+    "end": "2026-11-11T23:30:00Z",
+    "temp_min_f": 58.26,
+    "temp_max_f": 58.26,
     "pop_max": 0.0,
     "conditions": [
-      "Clear"
+      "Clouds"
     ],
     "has_rain_forecast": false
   },
@@ -53,9 +53,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_work",
-      "duration_min": 42.11666666666667,
-      "static_duration_min": 40.983333333333334,
-      "congestion_ratio": 1.027653517690118,
+      "duration_min": 39.35,
+      "static_duration_min": 41.15,
+      "congestion_ratio": 0.9562575941676792,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -65,9 +65,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_work",
-      "duration_min": 43.53333333333333,
-      "static_duration_min": 42.25,
-      "congestion_ratio": 1.0303747534516765,
+      "duration_min": 41.483333333333334,
+      "static_duration_min": 42.45,
+      "congestion_ratio": 0.9772281115037299,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -77,9 +77,9 @@
     {
       "name": "Route A (direct)",
       "direction": "to_home",
-      "duration_min": 45.25,
-      "static_duration_min": 42.3,
-      "congestion_ratio": 1.0697399527186762,
+      "duration_min": 40.95,
+      "static_duration_min": 42.36666666666667,
+      "congestion_ratio": 0.9665617623918175,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -89,9 +89,9 @@
     {
       "name": "Route B (Gibraltar)",
       "direction": "to_home",
-      "duration_min": 43.266666666666666,
-      "static_duration_min": 43.46666666666667,
-      "congestion_ratio": 0.995398773006135,
+      "duration_min": 42.45,
+      "static_duration_min": 43.53333333333333,
+      "congestion_ratio": 0.975114854517611,
       "congestion_level": "LIGHT",
       "warnings": [
         "This route includes a highway."
@@ -101,22 +101,22 @@
     {
       "name": "Route C (Elverson)",
       "direction": "to_home",
-      "duration_min": 51.85,
-      "static_duration_min": 51.7,
-      "congestion_ratio": 1.0029013539651837,
+      "duration_min": 50.46666666666667,
+      "static_duration_min": 51.8,
+      "congestion_ratio": 0.9742599742599742,
       "congestion_level": "LIGHT",
       "warnings": [],
       "is_closed": false
     }
   ],
   "best_route_to_work": "Route A (direct)",
-  "best_route_to_home": "Route B (Gibraltar)",
+  "best_route_to_home": "Route A (direct)",
   "narrative": {
-    "subject_line": "Your Ride Verdict for Tomorrow",
-    "summary_paragraph": "Unfortunately, the ride verdict is a definite NO_GO for tomorrow. The chilly morning and evening temperatures fall outside the ideal range for a comfortable motorcycle commute.",
-    "weather_notes": "In the morning, expect cloudy skies with temperatures between 44.4°F and 44.8°F. By evening, the skies will clear up, but the temperature will still be just 61°F.",
-    "traffic_notes": "Traffic conditions are projected to remain light throughout the day, so there's no congestion to worry about.",
-    "route_recommendation_reasoning": "While traffic is light, the weather conditions and cooler temperatures are not suitable for a motorcycle ride right now, making the ride unadvisable.",
+    "subject_line": "Motorcycle Commute Update",
+    "summary_paragraph": "Unfortunately, the ride verdict remains NO_GO for tomorrow due to chilly temperatures. Both the morning and evening forecasts show temps far below ideal bike riding conditions, with a morning low of 44.9°F and an evening high of 58.3°F.",
+    "weather_notes": "In the morning, expect mostly cloudy skies with temperatures ranging from about 44.9°F to 45.9°F, well below the comfortable range for riding. The evening will have similar cloudy conditions with a steady temperature of 58.3°F, still too cool for comfort on the bike.",
+    "traffic_notes": "Traffic should be light tomorrow; however, the weather conditions outweigh traffic considerations for a ride. All recommended routes are clear without any closures or significant delays.",
+    "route_recommendation_reasoning": "While Route A (direct) is the best route for both to work and back home, the cold temperatures mean it's best to keep the bike parked. Despite the light traffic, comfort and safety are paramount.",
     "changes_since_last_night": null,
     "gear_tips": null
   }
